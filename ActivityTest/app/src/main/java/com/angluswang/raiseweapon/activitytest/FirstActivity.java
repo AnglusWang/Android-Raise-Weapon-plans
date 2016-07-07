@@ -2,7 +2,6 @@ package com.angluswang.raiseweapon.activitytest;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,10 +34,14 @@ public class FirstActivity extends Activity {
 //                Intent intent = new Intent("com.angluswang.raiseweapon.activitytest.ACTION_START");
 //                intent.addCategory("com.angluswang.raiseweapon.activitytest.MY_CATEGORY");
 
-                Intent intent = new Intent();
+//                Intent intent = new Intent();
 //                2.1 使用隐式 Intent 代开系统浏览器
 //                2.2 给活动三 添加 data 属性，让其能相应打开浏览器的请求（只是模拟，并不具备浏览器功能）
-                intent.setData(Uri.parse("http://www.baidu.com"));
+//                intent.setData(Uri.parse("http://www.baidu.com"));
+//                startActivity(intent);
+
+//                2.3 隐式 Intent 调用系统拨号界面
+                Intent intent = new Intent(Intent.ACTION_DIAL);
                 startActivity(intent);
             }
         });
