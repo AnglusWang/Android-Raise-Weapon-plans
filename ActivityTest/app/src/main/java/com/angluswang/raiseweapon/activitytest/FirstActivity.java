@@ -22,26 +22,9 @@ public class FirstActivity extends Activity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(FirstActivity.this, "You clicked Button 1",
-//                        Toast.LENGTH_SHORT).show();
-//                销毁当前活动
-//                finish();
-
-//                1.使用显示 Intent 进入 SecondActivity 活动界面
-//                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-
-//                2.使用隐式 Intent
-//                Intent intent = new Intent("com.angluswang.raiseweapon.activitytest.ACTION_START");
-//                intent.addCategory("com.angluswang.raiseweapon.activitytest.MY_CATEGORY");
-
-//                Intent intent = new Intent();
-//                2.1 使用隐式 Intent 代开系统浏览器
-//                2.2 给活动三 添加 data 属性，让其能相应打开浏览器的请求（只是模拟，并不具备浏览器功能）
-//                intent.setData(Uri.parse("http://www.baidu.com"));
-//                startActivity(intent);
-
-//                2.3 隐式 Intent 调用系统拨号界面
-                Intent intent = new Intent(Intent.ACTION_DIAL);
+                String data = "Hello SecondActivity";
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                intent.putExtra("extra_data", data);
                 startActivity(intent);
             }
         });
