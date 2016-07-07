@@ -26,8 +26,13 @@ public class FirstActivity extends Activity {
 //                        Toast.LENGTH_SHORT).show();
 //                销毁当前活动
 //                finish();
-//                使用显示 Intent 进入 SecondActivity 活动界面
-                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+
+//                1.使用显示 Intent 进入 SecondActivity 活动界面
+//                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+
+//                2.使用隐式 Intent
+                Intent intent = new Intent("com.angluswang.raiseweapon.activitytest.ACTION_START");
+                intent.addCategory("com.angluswang.raiseweapon.activitytest.MY_CATEGORY");
                 startActivity(intent);
             }
         });
@@ -36,6 +41,7 @@ public class FirstActivity extends Activity {
 
     /**
      * 创建菜单
+     *
      * @param menu
      * @return
      */
@@ -47,6 +53,7 @@ public class FirstActivity extends Activity {
 
     /**
      * 菜单被选择时，进行相应的操作（此处为吐司）
+     *
      * @param item
      * @return
      */
