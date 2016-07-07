@@ -3,6 +3,7 @@ package com.angluswang.raiseweapon.activitytest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,13 +23,28 @@ public class FirstActivity extends Activity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String data = "Hello SecondActivity";
+//                String data = "Hello SecondActivity";
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                intent.putExtra("extra_data", data);
-                startActivity(intent);
+//                intent.putExtra("extra_data", data);
+//                startActivity(intent);
+                startActivityForResult(intent, 1);  //　需要重写 onActivityResult 方法来处理返回的数据
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    String resultedData = data.getStringExtra("data_return");
+                    Log.d("FirstActivity: ", resultedData);
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     /**
