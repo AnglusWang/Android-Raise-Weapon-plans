@@ -1,6 +1,7 @@
 package com.angluswang.raiseweapon.activitytest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +24,11 @@ public class FirstActivity extends Activity {
             public void onClick(View v) {
 //                Toast.makeText(FirstActivity.this, "You clicked Button 1",
 //                        Toast.LENGTH_SHORT).show();
-                finish();
+//                销毁当前活动
+//                finish();
+//                使用显示 Intent 进入 SecondActivity 活动界面
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                startActivity(intent);
             }
         });
 
